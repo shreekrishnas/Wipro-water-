@@ -61,26 +61,31 @@ body {
   background: var(--surface-base);
 }
 
-/* ---------- Atmosphere (§3) ---------- */
+/* ---------- Atmosphere — Wipro Water palette ---------- */
 .atmosphere {
   position: fixed;
   inset: 0;
   z-index: -1;
   filter: blur(80px);
   background:
-    radial-gradient(circle at 20% 20%, #e0e7ff 0%, transparent 40%),
-    radial-gradient(circle at 80% 10%, #fae8ff 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, #f1f5f9 0%, transparent 100%),
-    radial-gradient(circle at 10% 80%, #dcfce7 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, #fef9c3 0%, transparent 40%);
+    radial-gradient(circle at 20% 20%, #cffafe 0%, transparent 40%),
+    radial-gradient(circle at 80% 10%, #e0f2fe 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, #f0fdfa 0%, transparent 100%),
+    radial-gradient(circle at 10% 80%, #ccfbf1 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, #ecfeff 0%, transparent 40%);
+  animation: atmosphereDrift 18s ease-in-out infinite alternate;
 }
 [data-theme="dark"] .atmosphere {
   background:
-    radial-gradient(circle at 20% 20%, #1e1b4b 0%, transparent 40%),
-    radial-gradient(circle at 80% 10%, #3b0764 0%, transparent 40%),
+    radial-gradient(circle at 20% 20%, #083344 0%, transparent 40%),
+    radial-gradient(circle at 80% 10%, #155e75 0%, transparent 40%),
     radial-gradient(circle at 50% 50%, #0f172a 0%, transparent 100%),
     radial-gradient(circle at 10% 80%, #064e3b 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, #1c1917 0%, transparent 40%);
+    radial-gradient(circle at 90% 90%, #082f49 0%, transparent 40%);
+}
+@keyframes atmosphereDrift {
+  from { transform: translate3d(0,0,0) scale(1); }
+  to   { transform: translate3d(-2%, 1%, 0) scale(1.03); }
 }
 
 /* ---------- Shell (§6) ---------- */
@@ -478,3 +483,147 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .text-muted { color: var(--text-muted); }
 .text-secondary { color: var(--text-secondary); }
 .text-primary { color: var(--text-primary); }
+
+/* ---------- Branded Hero strip ---------- */
+.hero-strip {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 1.75rem 2rem;
+  color: #fff;
+  overflow: hidden;
+  background: linear-gradient(135deg, #06B6D4 0%, #0891B2 45%, #0E7490 100%);
+  box-shadow: 0 12px 36px rgba(8,145,178,0.35), 0 4px 12px rgba(14,116,144,0.20);
+  isolation: isolate;
+}
+.hero-strip::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(80% 60% at 85% 20%, rgba(255,255,255,0.25) 0%, transparent 60%),
+    radial-gradient(60% 80% at 10% 100%, rgba(255,255,255,0.18) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-strip > * { position: relative; z-index: 1; }
+.hero-ripple {
+  position: absolute;
+  right: -40px; bottom: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  z-index: 0;
+}
+.hero-ripple::before, .hero-ripple::after {
+  content: ""; position: absolute; inset: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.hero-ripple::after { inset: 60px; border-color: rgba(255,255,255,0.12); }
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute; left: 7px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, #06B6D4, #0891B2, #0E7490);
+  border-radius: 2px;
+  opacity: 0.55;
+}
+.timeline-node {
+  position: relative;
+  padding: 0 0 1.25rem 0;
+}
+.timeline-node::before {
+  content: "";
+  position: absolute; left: -1.5rem; top: 1.1rem;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #0891B2;
+  box-shadow: 0 0 0 4px rgba(8,145,178,0.18);
+}
+[data-theme="dark"] .timeline-node::before {
+  background: #0F172A;
+}
+
+/* ---------- Funnel ---------- */
+.funnel-step {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.875rem;
+  padding: 0.85rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.75rem;
+  position: relative;
+}
+.funnel-step::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--border-subtle);
+}
+.funnel-step:last-child::after { display: none; }
+
+/* ---------- Heatmap calendar ---------- */
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+}
+.heatmap-cell {
+  aspect-ratio: 1.4;
+  border-radius: 6px;
+  background: var(--surface-hover);
+  position: relative;
+  font-size: 0.62rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 4px;
+  color: var(--text-muted);
+}
+.heatmap-cell.active {
+  background: linear-gradient(135deg, #06B6D4, #0891B2);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(8,145,178,0.30);
+  font-weight: 600;
+}
+
+/* ---------- Cover thumbnail ---------- */
+.cover-thumb {
+  aspect-ratio: 16/9;
+  border-radius: 0.875rem;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: flex-end;
+  padding: 0.85rem;
+  color: #fff;
+}
+.cover-thumb::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.45) 100%);
+}
+.cover-thumb > * { position: relative; z-index: 1; }
+
+/* ---------- Animated count-up via CSS @property fallback ---------- */
+@keyframes countUp { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+.kpi-counter { animation: countUp .6s ease-out both; }
+
+/* ---------- Print / PDF ---------- */
+@media print {
+  body { background: #fff !important; }
+  .atmosphere, .sidebar, .topbar, .btn-primary, .btn-cta, .btn-secondary, .btn-ghost, .seg-toggle, .search-wrap { display: none !important; }
+  .glass-panel { box-shadow: none !important; border: none !important; background: #fff !important; height: auto !important; }
+  .app-shell { height: auto !important; max-width: 100% !important; }
+  .app-main { overflow: visible !important; padding: 0 !important; }
+  .glass-card, .glass-card-static { box-shadow: none !important; border: 1px solid #e5e7eb !important; background: #fff !important; break-inside: avoid; }
+  .hero-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

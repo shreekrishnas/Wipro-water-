@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Icon } from './Icons.jsx';
+import { Logo } from './Logo.jsx';
 import { ACCOUNT } from '../data/webinars.js';
 
 function useTheme() {
@@ -45,10 +46,8 @@ export function Shell({ children }) {
       <div className="app-shell">
         <div className="glass-panel">
           <aside className="sidebar">
-            <div className="logo-mark" title={ACCOUNT.name}>
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3c-3.5 4.5-6 7-6 11a6 6 0 0012 0c0-4-2.5-6.5-6-11z" fill="rgba(255,255,255,0.95)" stroke="none" />
-              </svg>
+            <div title={ACCOUNT.name} style={{ marginBottom: '0.75rem' }}>
+              <Logo size={44} rounded={14} />
             </div>
             {NAV.map((n) => {
               const active = n.to === '/' ? pathname === '/' : pathname.startsWith(n.to);

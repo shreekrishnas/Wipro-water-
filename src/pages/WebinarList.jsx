@@ -1,8 +1,13 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { webinars } from '../data/webinars.js';
+import { webinars, SERIES } from '../data/webinars.js';
 import { StatusBadge, TagPill } from '../components/Badge.jsx';
 import { Icon } from '../components/Icons.jsx';
+
+function themeColor(theme) {
+  const t = SERIES.themes.find((x) => x.name === theme);
+  return t?.color || '#0891B2';
+}
 
 function fmt(n) { return Number(n || 0).toLocaleString(); }
 
@@ -56,23 +61,40 @@ export default function WebinarList() {
           gap: '1.1rem',
         }}
       >
-        {filtered.map((w) => (
+        {filtered.map((w) => {
+          const [c1, c2] = w.coverGradient || ['#0891B2', '#06B6D4'];
+          const tColor = themeColor(w.theme);
+          return (
           <Link
             key={w.id}
             to={`/webinars/${w.id}`}
             className="glass-card"
             style={{
-              padding: '1.15rem 1.2rem',
+              padding: 0,
               textDecoration: 'none',
               display: 'flex',
               flexDirection: 'column',
-              gap: '0.75rem',
               color: 'inherit',
+              overflow: 'hidden',
             }}
           >
+            <div className="cover-thumb" style={{
+              background: w.coverImage ? `url(${w.coverImage}) center/cover` : `linear-gradient(135deg, ${c1}, ${c2})`,
+              borderRadius: 0,
+              aspectRatio: '16/8',
+              padding: '0.85rem 1rem',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              display: 'flex',
+            }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.22)', color: '#fff', border: '1px solid rgba(255,255,255,0.30)' }}>
+                {w.theme}
+              </span>
+              <StatusBadge status={w.status} />
+            </div>
+            <div style={{ padding: '1rem 1.2rem 1.15rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.75rem' }}>
               <div className="mono" style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{w.id}</div>
-              <StatusBadge status={w.status} />
             </div>
             <div>
               <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '1rem', lineHeight: 1.25 }}>
@@ -104,11 +126,12 @@ export default function WebinarList() {
             </div>
             {!!(w.tags && w.tags.length) && (
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-                {w.tags.slice(0, 3).map((t) => <TagPill key={t} color="#0EA5E9">{t}</TagPill>)}
+                {w.tags.slice(0, 3).map((t) => <TagPill key={t} color={tColor}>{t}</TagPill>)}
               </div>
             )}
+            </div>
           </Link>
-        ))}
+        );})}
         {!filtered.length && (
           <div style={{ color: 'var(--text-muted)', padding: '2rem' }}>
             No webinars match your filters.
