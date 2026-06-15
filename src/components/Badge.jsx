@@ -1,4 +1,4 @@
-// §10 — pills always set inline background so the dark-mode safety net
+// §10 - pills always set inline background so the dark-mode safety net
 // preserves the text colour.
 const MAP = {
   completed: { bg: 'rgba(16,185,129,0.12)', fg: '#059669', dot: '#10B981', label: 'Completed' },

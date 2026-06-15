@@ -1,4 +1,4 @@
-// §7 KPI card — coloured left accent strip + uppercase micro-label + big serif value.
+// §7 KPI card - coloured left accent strip + uppercase micro-label + big serif value.
 export function KpiCard({ label, value, meta, accent = '#7C3AED', serif = true }) {
   return (
     <div

@@ -1,7 +1,7 @@
 import { totals } from '../data/webinars.js';
 
 function pct(num, den) {
-  if (!den) return '—';
+  if (!den) return '-';
   return `${((num / den) * 100).toFixed(1)}%`;
 }
 

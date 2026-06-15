@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { webinars } from '../data/webinars.js';
 
 // Stylized "reach" visual: a translucent globe with country pins. Not a real
-// projection — designed to look beautiful with very small datasets.
+// projection - designed to look beautiful with very small datasets.
 //
 // If your country list grows, we can wire react-simple-maps for a real world
 // map; for 9 webinars this reads cleaner.
@@ -88,7 +88,7 @@ export function ReachGlobe() {
         <div className="eyebrow" style={{ marginBottom: '0.5rem' }}>Top countries</div>
         {countries.length === 0 && (
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            No country data yet — add to <span className="mono">countries</span> on each webinar.
+            No country data yet - add to <span className="mono">countries</span> on each webinar.
           </div>
         )}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', maxHeight: 280, overflow: 'auto' }}>

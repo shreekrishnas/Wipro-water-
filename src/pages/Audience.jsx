@@ -99,7 +99,7 @@ export default function Audience() {
 function Empty() {
   return (
     <div style={{ padding: '2rem 1rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-      No data yet — fill <span className="mono">countries</span> / <span className="mono">industries</span> on each webinar.
+      No data yet - fill <span className="mono">countries</span> / <span className="mono">industries</span> on each webinar.
     </div>
   );
 }

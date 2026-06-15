@@ -1,4 +1,4 @@
-// Wipro Water droplet mark — cyan gradient drop with a soft inner highlight.
+// Wipro Water droplet mark - cyan gradient drop with a soft inner highlight.
 export function Logo({ size = 44, rounded = 14 }) {
   return (
     <div

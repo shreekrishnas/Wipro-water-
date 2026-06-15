@@ -33,7 +33,7 @@ export default function Speakers() {
             <div style={{ minWidth: 0 }}>
               <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{s.name}</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                {[s.title, s.company].filter(Boolean).join(' · ') || '—'}
+                {[s.title, s.company].filter(Boolean).join(' · ') || '-'}
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Speakers() {
       ))}
       {!speakers.length && (
         <div className="glass-card-static" style={{ padding: '2rem', gridColumn: '1 / -1', color: 'var(--text-muted)' }}>
-          No speakers yet — they'll appear here once you fill in the <span className="mono">speakers</span> array on each webinar.
+          No speakers yet - they'll appear here once you fill in the <span className="mono">speakers</span> array on each webinar.
         </div>
       )}
     </div>

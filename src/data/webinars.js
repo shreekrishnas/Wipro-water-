@@ -2,7 +2,7 @@
 //  WIPRO WATER · WEBINAR DATA · SINGLE SOURCE OF TRUTH
 // ─────────────────────────────────────────────────────────────────────────────
 //
-//  Drop your real webinar details into the array below — every page in the
+//  Drop your real webinar details into the array below - every page in the
 //  dashboard (overview, list, detail, charts, KPIs) re-renders from this file.
 //
 //  Each webinar follows the shape:
@@ -58,8 +58,8 @@
 export const ACCOUNT = {
   name: "Wipro Water",
   tagline: "Webinar Series · 2025",
-  brandColor: "#0891B2",        // cyan-700 — water depth
-  brandColorSoft: "#06B6D4",    // cyan-500 — surface ripple
+  brandColor: "#0891B2",        // cyan-700 - water depth
+  brandColorSoft: "#06B6D4",    // cyan-500 - surface ripple
   brandColorDeep: "#0E7490",    // cyan-800
   gradient: "linear-gradient(135deg, #06B6D4 0%, #0891B2 50%, #0E7490 100%)",
 };
@@ -68,7 +68,7 @@ export const SERIES = {
   title: "The Wipro Water Webinar Series",
   kicker: "Conversations on sustainable industrial water",
   mission:
-    "A monthly conversation with leaders shaping the future of industrial water — covering zero-liquid discharge, reuse, digital water, ESG and the engineering behind clean operations.",
+    "A monthly conversation with leaders shaping the future of industrial water - covering zero-liquid discharge, reuse, digital water, ESG and the engineering behind clean operations.",
   themes: [
     { name: "Zero Liquid Discharge", color: "#0891B2" },
     { name: "Water Reuse & Recycle", color: "#06B6D4" },
@@ -115,7 +115,7 @@ const _webinars = [
     rating: 0,
     leads: 4,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Opening session of the series — an introduction to ZLD as a strategy for industries facing tightening discharge norms.",
+    summary: "Opening session of the series - an introduction to ZLD as a strategy for industries facing tightening discharge norms.",
     tags: ["ZLD", "Sustainability"],
   },
   {
@@ -155,7 +155,7 @@ const _webinars = [
     rating: 0,
     leads: 6,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Mapping industrial water programmes to UN SDG 6 and beyond — what gets measured, what gets funded.",
+    summary: "Mapping industrial water programmes to UN SDG 6 and beyond - what gets measured, what gets funded.",
     tags: ["SDG", "ESG"],
   },
   {
@@ -175,7 +175,7 @@ const _webinars = [
     rating: 0,
     leads: 8,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Case studies on extending existing assets — compliance gains, debottlenecking, and modern instrumentation without greenfield spend.",
+    summary: "Case studies on extending existing assets - compliance gains, debottlenecking, and modern instrumentation without greenfield spend.",
     tags: ["Retrofit", "Compliance", "CapEx"],
   },
   {
@@ -220,7 +220,7 @@ const _webinars = [
   },
   {
     id: "WEB-007",
-    title: "Effluent Treatment for Sustainable Tomorrow — Series 2",
+    title: "Effluent Treatment for Sustainable Tomorrow - Series 2",
     topic: "Effluent treatment, continued: advanced processes & reuse",
     date: "2025-09-15",
     time: "15:00",
@@ -235,7 +235,7 @@ const _webinars = [
     rating: 0,
     leads: 0,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Follow-up to the July session — advanced oxidation, polishing trains, and water reuse strategies for industrial sites.",
+    summary: "Follow-up to the July session - advanced oxidation, polishing trains, and water reuse strategies for industrial sites.",
     tags: ["ETP", "Reuse"],
   },
   {
@@ -255,12 +255,12 @@ const _webinars = [
     rating: 0,
     leads: 3,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Why MBRs are becoming the default for new industrial wastewater builds — footprint, effluent quality, and operating envelope.",
+    summary: "Why MBRs are becoming the default for new industrial wastewater builds - footprint, effluent quality, and operating envelope.",
     tags: ["MBR", "Wastewater"],
   },
   {
     id: "WEB-009",
-    title: "Webinar 9 — Pending",
+    title: "Webinar 9 - Pending",
     topic: "Details to be confirmed",
     date: "2026-03-15",
     time: "15:00",
@@ -275,7 +275,7 @@ const _webinars = [
     rating: 0,
     leads: 0,
     speakers: [{ name: "Speaker TBD", title: "", company: "Wipro Water" }],
-    summary: "Placeholder for the 9th session — share the title and stats whenever ready and this card refreshes automatically.",
+    summary: "Placeholder for the 9th session - share the title and stats whenever ready and this card refreshes automatically.",
     tags: [],
   },
 ];
@@ -296,7 +296,7 @@ export const webinars = _webinars.map((w, i) => ({
 }));
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  Derived aggregates — consumed by the Overview page. Do not edit by hand;
+//  Derived aggregates - consumed by the Overview page. Do not edit by hand;
 //  they recompute on every render from the array above.
 // ─────────────────────────────────────────────────────────────────────────────
 

@@ -23,7 +23,7 @@ export function Heatmap({ year }) {
           <div
             key={i}
             className={`heatmap-cell ${c.webinar ? 'active' : ''}`}
-            title={c.webinar ? `${c.webinar.title} · ${c.webinar.date}` : `${c.month} ${targetYear} — no session`}
+            title={c.webinar ? `${c.webinar.title} · ${c.webinar.date}` : `${c.month} ${targetYear} - no session`}
           >
             {c.month}
           </div>

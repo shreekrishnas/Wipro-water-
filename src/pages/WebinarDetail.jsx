@@ -246,7 +246,7 @@ export default function WebinarDetail() {
               "{w.testimonial.quote}"
             </blockquote>
             <div style={{ marginTop: '0.85rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-              — {w.testimonial.author}{w.testimonial.role ? `, ${w.testimonial.role}` : ''}
+              - {w.testimonial.author}{w.testimonial.role ? `, ${w.testimonial.role}` : ''}
             </div>
           </div>
         ) : (
